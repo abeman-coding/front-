@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bestely · frontend best interface</title>
+  <!-- Google Fonts for elegance & readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for subtle icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7fafd;
+      font-family: 'Inter', sans-serif;
+      color: #1a2639;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* smooth & airy container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* header — minimal, crisp */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(0, 20, 40, 0.06);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      font-size: 2.2rem;
+      color: #1e3c5c;
+      background: linear-gradient(145deg, #1e3c5c, #2b4c73);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo span {
+      font-weight: 700;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(130deg, #1e3c5c, #385e8c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      font-weight: 500;
+      color: #2f405c;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 1.1rem;
+      transition: color 0.2s ease;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      color: #0f2b42;
+      border-bottom-color: #2b4c73;
+    }
+
+    .header-cta {
+      background: #1e3c5c;
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 12px 28px -8px rgba(20, 50, 80, 0.25);
+      cursor: default;
+      transition: 0.15s;
+    }
+
+    .header-cta:hover {
+      background: #234b70;
+      transform: scale(1.02);
+      box-shadow: 0 18px 32px -8px rgba(20, 50, 80, 0.3);
+    }
+
+    /* HERO section — best interface feel */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      padding: 60px 0 80px;
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      flex: 1 1 400px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(30, 60, 92, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1e3c5c;
+      margin-bottom: 24px;
+      border: 1px solid rgba(30, 60, 92, 0.15);
+      letter-spacing: 0.3px;
+    }
+
+    .hero-left h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #0c1f30;
+      margin-bottom: 24px;
+    }
+
+    .hero-left h1 span {
+      background: linear-gradient(135deg, #28588b, #6f9fd3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #2f405c;
+      max-width: 500px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 42px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a3d5c;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: #5c6f88;
+      font-weight: 500;
+    }
+
+    .hero-right {
+      flex: 1 1 400px;
+      background: linear-gradient(145deg, #d9e6f2, #ecf3fa);
+      border-radius: 48px 48px 48px 48px;
+      padding: 30px 30px 10px 30px;
+      box-shadow: 0 40px 50px -20px rgba(18, 45, 70, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interface-preview {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 32px 32px 24px 24px;
+      padding: 20px 20px 10px 20px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 20px 30px -12px #1e3c5c33;
+    }
+
+    .preview-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .preview-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #f5a97f;
+    }
+    .preview-dot:nth-child(2) { background: #84b0d9; }
+    .preview-dot:nth-child(3) { background: #a9d6e5; }
+
+    .preview-line {
+      height: 28px;
+      background: white;
+      border-radius: 30px;
+      flex: 1;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .card-preview {
+      background: white;
+      border-radius: 18px;
+      padding: 15px 10px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+    }
+    .card-preview .thin {
+      height: 10px;
+      background: #eef3f9;
+      border-radius: 10px;
+      margin: 8px 0;
+    }
+    .card-preview .medium {
+      height: 24px;
+      background: #d6e2f0;
+      border-radius: 30px;
+      margin: 12px 0 8px;
+    }
+
+    /* brands ribbon */
+    .brands {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 30px 0;
+      border-top: 1px solid rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+      margin-bottom: 70px;
+      color: #5f7d9c;
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0.85;
+    }
+
+    .brands i {
+      font-size: 2rem;
+      color: #a3bbd1;
+      transition: 0.2s;
+    }
+    .brands i:hover { color: #1e3c5c; }
+
+    /* features — best interface thinking */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-title h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #102a40;
+      letter-spacing: -0.02em;
+    }
+    .section-title p {
+      font-size: 1.2rem;
+      color: #4a607a;
+      max-width: 600px;
+      margin: 15px auto 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 48px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 40px -15px rgba(26, 48, 74, 0.12);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 50px -20px #102a4050;
+      border-color: #cdddec;
+    }
+
+    .feature-icon {
+      background: #e7f0fa;
+      width: 70px;
+      height: 70px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .feature-icon i {
+      font-size: 2.4rem;
+      color: #1e3c5c;
+    }
+
+    .feature-card h3 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #1b3146;
+    }
+
+    .feature-card p {
+      color: #3e5670;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    /* showcase / best interface panel */
+    .showcase {
+      display: flex;
+      gap: 30px;
+      background: #0e263b;
+      border-radius: 70px;
+      padding: 65px 60px;
+      color: white;
+      margin: 80px 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .showcase-text {
+      flex: 2 1 300px;
+    }
+    .showcase-text h3 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .showcase-text p {
+      font-size: 1.15rem;
+      color: #cbdae9;
+      max-width: 450px;
+    }
+
+    .showcase-grid {
+      flex: 3 1 400px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .showcase-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 42px;
+      padding: 28px 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .showcase-card .light {
+      color: #dbeafe;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    .showcase-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 8px 0 5px;
+    }
+
+    /* latest from bestely (blog / cards) */
+    .insight-cards {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 40px 0 100px;
+    }
+    .insight-card {
+      background: white;
+      flex: 1 1 280px;
+      border-radius: 44px;
+      padding: 30px;
+      box-shadow: 0 10px 30px -12px rgba(0,0,0,0.1);
+      transition: 0.15s;
+      border: 1px solid #eaf0f8;
+    }
+    .insight-card:hover {
+      background: #f9fcff;
+      border-color: #b7d3ec;
+    }
+    .insight-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #6c86a2;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .insight-card h4 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0 0 20px;
+      color: #192f44;
+    }
+    .tag {
+      background: #e4eefb;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e3c5c;
+    }
+
+    /* CTA - final */
+    .cta-large {
+      background: linear-gradient(125deg, #edf5fe, #ffffff);
+      border-radius: 100px 100px 100px 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 70px;
+      margin: 70px 0 40px;
+      box-shadow: 0 40px 45px -30px #1e3c5c4d;
+      border: 1px solid white;
+      flex-wrap: wrap;
+    }
+    .cta-large h3 {
+      font-size: 2.4rem;
+      font-weight: 650;
+      color: #102b41;
+      max-width: 500px;
+    }
+    .cta-btn {
+      background: #102b41;
+      border: none;
+      color: white;
+      padding: 22px 65px;
+      border-radius: 90px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      box-shadow: 0 20px 25px -8px #0b253a;
+      cursor: default;
+      transition: 0.15s;
+      letter-spacing: 0.5px;
+    }
+    .cta-btn:hover {
+      background: #1b3f60;
+      box-shadow: 0 28px 35px -8px #102f48;
+    }
+
+    /* footer — minimal */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0 60px;
+      color: #5b738e;
+      font-weight: 400;
+      border-top: 1px solid rgba(0,0,0,0.04);
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 40px;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .footer-links a:hover { color: #102b41; }
+
+    /* everything responsive */
+    @media (max-width: 800px) {
+      .container { padding: 0 24px; }
+      .hero-left h1 { font-size: 3rem; }
+      .navbar { flex-direction: column; gap: 20px; }
+      .showcase { padding: 40px 25px; border-radius: 50px; }
+      .cta-large { border-radius: 60px; padding: 40px 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- header / navigation -->
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fas fa-bezier-curve"></i>
+        <span>bestely</span>
+      </div>
+      <div class="nav-links">
+        <a href="#">Interface</a>
+        <a href="#">Design</a>
+        <a href="#">Studio</a>
+        <a href="#">Showcase</a>
+      </div>
+      <button class="header-cta" aria-label="get started (demo)">best · experience</button>
+    </nav>
+
+    <!-- hero section: best interface upfront -->
+    <div class="hero">
+      <div class="hero-left">
+        <span class="hero-badge"><i class="far fa-gem" style="margin-right: 6px;"></i>bestely design system</span>
+        <h1>where <span>interface</span><br>becomes bestely</h1>
+        <p class="hero-desc">Every pixel, every curve — crafted for delight. The frontend that feels like pure interaction.</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">satisfaction</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">12k</span>
+            <span class="stat-label">bestely users</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="interface-preview">
+          <div class="preview-bar">
+            <span class="preview-dot"></span>
+            <span class="preview-dot"></span>
+            <span class="preview-dot"></span>
+            <div class="preview-line"></div>
+          </div>
+          <div class="card-grid">
+            <div class="card-preview"><div class="medium"></div><div class="thin"></div><div class="thin"></div></div>
+            <div class="card-preview"><div class="medium"></div><div class="thin"></div><div class="thin"></div></div>
+          </div>
+          <div style="margin: 15px 0 5px; width: 70%; height: 18px; background: white; border-radius: 50px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- brand strip: minimal & subtle -->
+    <div class="brands">
+      <span> <i class="fab fa-figma"></i>  figma · bestely</span>
+      <span> <i class="fab fa-sketch"></i>  sketch · framer</span>
+      <span> <i class="fas fa-pen-fancy"></i>  adobe xd</span>
+      <span> <i class="fas fa-code"></i>  react · vue</span>
+    </div>
+
+    <!-- features – why best interface -->
+    <div class="section-title">
+      <h2>crafted to be the best interface</h2>
+      <p>bestely stands for clarity, fluidity, and timeless aesthetics — everything you expect from a top-tier frontend.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-gem"></i></div>
+        <h3>pixel perfect</h3>
+        <p>Every component aligned to a 8‑pt grid, crisp on any display. No offsets, no half‑pixels.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-wind"></i></div>
+        <h3>airy & light</h3>
+        <p>Breathing whitespace, subtle shadows and depth. The interface feels open and calm.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-mask"></i></div>
+        <h3>glassmorphism</h3>
+        <p>Frosted panels with dynamic blur, yet always readable. Modern but warm.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+        <h3>micro‑interactions</h3>
+        <p>Subtle feedback on hover, smooth transitions — everything feels alive.</p>
+      </div>
+    </div>
+
+    <!-- showcase best interface panel -->
+    <div class="showcase">
+      <div class="showcase-text">
+        <h3>built for the best frontend experience</h3>
+        <p>Data from 400+ bestely projects shows: interface clarity improves retention by 42%.</p>
+      </div>
+      <div class="showcase-grid">
+        <div class="showcase-card">
+          <div class="light">task completion</div>
+          <div class="value">+36%</div>
+          <div style="color:#b0cbff">faster than avg</div>
+        </div>
+        <div class="showcase-card">
+          <div class="light">user preference</div>
+          <div class="value">94%</div>
+          <div style="color:#b0cbff">would choose bestely</div>
+        </div>
+        <div class="showcase-card">
+          <div class="light">design tokens</div>
+          <div class="value">430+</div>
+          <div style="color:#b0cbff">for consistency</div>
+        </div>
+        <div class="showcase-card">
+          <div class="light">components</div>
+          <div class="value">160+</div>
+          <div style="color:#b0cbff">ready to use</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- insight / blog style cards -->
+    <div class="section-title" style="margin-bottom: 20px;">
+      <h2>bestely journal</h2>
+      <p>inside the best interface thinking</p>
+    </div>
+    <div class="insight-cards">
+      <div class="insight-card">
+        <div class="insight-meta"><span>guide</span><span>6 min</span></div>
+        <h4>interface · essence</h4>
+        <div class="tag">best practices</div>
+        <p style="margin-top: 25px; color:#2c4868;">Why the best frontend feels like an extension of thought.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-meta"><span>showcase</span><span>new</span></div>
+        <h4>glassmorphism 2.0</h4>
+        <div class="tag">trends</div>
+        <p style="margin-top: 25px; color:#2c4868;">Layered blur, dynamic elevation — the next step.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-meta"><span>bestely lab</span><span>5 min</span></div>
+        <h4>micro‑joy</h4>
+        <div class="tag">interaction</div>
+        <p style="margin-top: 25px; color:#2c4868;">Animations that never get old. subtle yet delightful.</p>
+      </div>
+    </div>
+
+    <!-- final call to action (just frontend) -->
+    <div class="cta-large">
+      <h3>ready to build the best interface?</h3>
+      <button class="cta-btn" aria-label="explore bestely">explore bestely <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></button>
+    </div>
+
+    <!-- minimal footer -->
+    <div class="footer">
+      <div class="logo" style="opacity: 0.7;">
+        <i class="fas fa-bezier-curve"></i>
+        <span style="font-size: 1.3rem;">bestely</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">style</a>
+        <a href="#">interface</a>
+        <a href="#">privacy</a>
+        <a href="#">accessibility</a>
+      </div>
+      <div>© bestely · best frontend</div>
+    </div>
+
+  </div> <!-- container end -->
+</body>
+</html>
